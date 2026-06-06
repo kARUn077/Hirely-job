@@ -51,6 +51,7 @@ const Navbar = () => {
                             <li><Link to="/" className="relative hover:text-[#8B5C2A] text-gray-800 transition after:content-[''] after:block after:h-0.5 after:bg-[#8B5C2A] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">Home</Link></li>
                             <li><Link to="/jobs" className="relative hover:text-[#8B5C2A] text-gray-800 transition after:content-[''] after:block after:h-0.5 after:bg-[#8B5C2A] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">Jobs</Link></li>
                             <li><Link to="/browse" className="relative hover:text-[#8B5C2A] text-gray-800 transition after:content-[''] after:block after:h-0.5 after:bg-[#8B5C2A] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">Browse</Link></li>
+                            {/* <li><Link to="/gemini" className="relative hover:text-[#8B5C2A] text-gray-800 transition after:content-[''] after:block after:h-0.5 after:bg-[#8B5C2A] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left">Gemini Demo</Link></li> */}
                         </>
                     )}
                     {!user ? (

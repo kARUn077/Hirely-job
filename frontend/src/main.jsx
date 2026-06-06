@@ -20,3 +20,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>,
 )
+
+//  MONGO_URI=mongodb+srv://karunpoddar0_db_user:karunpoddar0@cluster0.zgjxvki.mongodb.net/hirely?retryWrites=true&w=majority

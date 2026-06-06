@@ -9,6 +9,7 @@ import AppliedJobTable from './AppliedJobTable'
 import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
 import useGetAppliedJobs from '@/hooks/useGetAppliedJobs'
+import { useNavigate } from 'react-router-dom'
 
 // const skills = ["Html", "Css", "Javascript", "Reactjs"]
 const isResume = true;
@@ -17,6 +18,7 @@ const Profile = () => {
     useGetAppliedJobs();
     const [open, setOpen] = useState(false);
     const {user} = useSelector(store=>store.auth);
+    const navigate = useNavigate();
 
     return (
         <div className="min-h-screen bg-[#f8f4ee] pb-10">
@@ -61,7 +63,15 @@ const Profile = () => {
                 {/* Applied Jobs - Only for students */}
                 {user?.role === 'student' && (
                   <div className="bg-white rounded-2xl shadow border border-[#e5d3c2] mt-8">
-                      <h2 className="font-bold text-xl p-8 pb-0 text-[#8B5C2A]">Applied Jobs</h2>
+                      <div className="px-8 pt-8 pb-2 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                          <h2 className="font-bold text-xl text-[#8B5C2A]">Applied Jobs</h2>
+                          <Button
+                              onClick={() => navigate('/interview-plan')}
+                              className="bg-[#8B5C2A] hover:bg-[#704214] text-white rounded-full"
+                          >
+                              Customize Interview Plan
+                          </Button>
+                      </div>
                       <div className="p-8 pt-2">
                           <AppliedJobTable />
                       </div>

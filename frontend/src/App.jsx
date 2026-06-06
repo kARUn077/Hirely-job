@@ -13,6 +13,9 @@ import AdminJobs from "./components/admin/AdminJobs";
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
+import StudentProtectedRoute from './components/student/StudentProtectedRoute'
+import InterviewPlanHome from './components/student/InterviewPlanHome'
+import InterviewPlanResult from './components/student/InterviewPlanResult'
 
 
 const appRouter = createBrowserRouter([
@@ -43,6 +46,14 @@ const appRouter = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />
+  },
+  {
+    path: "/interview-plan",
+    element: <StudentProtectedRoute><InterviewPlanHome /></StudentProtectedRoute>
+  },
+  {
+    path: "/interview-plan/:id",
+    element: <StudentProtectedRoute><InterviewPlanResult /></StudentProtectedRoute>
   },
   // admin ke liye yha se start hoga
   {
