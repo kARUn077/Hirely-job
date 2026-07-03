@@ -9,23 +9,23 @@ const QuestionCard = ({ index, item }) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="bg-[#152239] border border-[#273852] rounded-xl overflow-hidden">
+        <div className="bg-white border border-[#e5d3c2] rounded-2xl overflow-hidden shadow-sm">
             <button
                 className="w-full text-left flex items-start gap-3 p-4"
                 onClick={() => setOpen((prev) => !prev)}
             >
-                <span className="text-xs font-bold text-[#ff3c81] bg-[#3f1c2e] px-2 py-1 rounded">Q{index + 1}</span>
-                <p className="text-sm md:text-base text-[#e4ebf6] flex-1">{item.question}</p>
+                <span className="text-xs font-bold text-[#8B5C2A] bg-[#f7eadb] px-2 py-1 rounded-full border border-[#e4c9ad]">Q{index + 1}</span>
+                <p className="text-sm md:text-base text-[#3f2a1b] flex-1">{item.question}</p>
             </button>
             {open && (
-                <div className="border-t border-[#273852] p-4 space-y-3">
+                <div className="border-t border-[#ead8c7] p-4 space-y-3 bg-[#fffaf4]">
                     <div>
-                        <p className="text-xs uppercase tracking-wide text-[#a78bfa] font-bold">Intention</p>
-                        <p className="text-sm text-[#b5c3d9] mt-1">{item.intention}</p>
+                        <p className="text-xs uppercase tracking-wide text-[#8B5C2A] font-bold">Intention</p>
+                        <p className="text-sm text-[#6f5a49] mt-1">{item.intention}</p>
                     </div>
                     <div>
-                        <p className="text-xs uppercase tracking-wide text-[#33d17a] font-bold">Model Answer</p>
-                        <p className="text-sm text-[#b5c3d9] mt-1">{item.answer}</p>
+                        <p className="text-xs uppercase tracking-wide text-[#4f7d57] font-bold">Model Answer</p>
+                        <p className="text-sm text-[#6f5a49] mt-1">{item.answer}</p>
                     </div>
                 </div>
             )}
@@ -36,16 +36,16 @@ const QuestionCard = ({ index, item }) => {
 const RoadmapDay = ({ day }) => {
     return (
         <div className="relative pl-10 pb-8">
-            <span className="absolute left-[18px] top-1 w-[2px] h-full bg-gradient-to-b from-[#ff3c81] to-transparent" />
-            <span className="absolute left-[12px] top-2 w-4 h-4 rounded-full border-2 border-[#ff3c81] bg-[#0b1220]" />
+            <span className="absolute left-[18px] top-1 w-[2px] h-full bg-gradient-to-b from-[#8B5C2A] to-transparent" />
+            <span className="absolute left-[12px] top-2 w-4 h-4 rounded-full border-2 border-[#8B5C2A] bg-[#fff8f0]" />
             <div className="flex items-center gap-3 mb-2">
-                <span className="text-xs font-bold text-[#ff3c81] bg-[#3f1c2e] px-2 py-1 rounded">Day {day.day}</span>
-                <h3 className="font-semibold text-[#e8eef9]">{day.focus}</h3>
+                <span className="text-xs font-bold text-[#8B5C2A] bg-[#f7eadb] border border-[#e4c9ad] px-2 py-1 rounded-full">Day {day.day}</span>
+                <h3 className="font-semibold text-[#3f2a1b]">{day.focus}</h3>
             </div>
             <ul className="space-y-2">
                 {(day.tasks || []).map((task, idx) => (
-                    <li key={idx} className="text-sm text-[#b5c3d9] flex items-start gap-2">
-                        <span className="mt-[7px] w-[5px] h-[5px] rounded-full bg-[#8b9bb6]" />
+                    <li key={idx} className="text-sm text-[#6f5a49] flex items-start gap-2">
+                        <span className="mt-[7px] w-[5px] h-[5px] rounded-full bg-[#8B5C2A]" />
                         <span>{task}</span>
                     </li>
                 ))}
@@ -93,9 +93,9 @@ const InterviewPlanResult = () => {
 
     if (loading || !plan) {
         return (
-            <div className="min-h-screen bg-[#0b1220] text-white">
+            <div className="min-h-screen bg-gradient-to-b from-[#fbf4ea] via-[#f8efe2] to-[#f3e6d6] text-[#3f2a1b]">
                 <Navbar />
-                <div className="max-w-6xl mx-auto px-4 py-16 text-center text-[#9fb0c8]">Loading your interview plan...</div>
+                <div className="max-w-6xl mx-auto px-4 py-16 text-center text-[#927d6c]">Loading your interview plan...</div>
             </div>
         );
     }
@@ -107,13 +107,13 @@ const InterviewPlanResult = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#0b1220] text-white">
+        <div className="min-h-screen bg-gradient-to-b from-[#fbf4ea] via-[#f8efe2] to-[#f3e6d6] text-[#3f2a1b]">
             <Navbar />
 
             <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
-                <div className="bg-[#101b2d] border border-[#23324a] rounded-2xl overflow-hidden flex flex-col lg:flex-row">
-                    <aside className="w-full lg:w-[220px] border-b lg:border-b-0 lg:border-r border-[#23324a] p-4">
-                        <p className="text-xs uppercase tracking-widest text-[#8d9cb3] mb-3">Sections</p>
+                <div className="bg-white/85 backdrop-blur border border-[#e5d3c2] rounded-3xl overflow-hidden flex flex-col lg:flex-row shadow-[0_20px_60px_rgba(139,92,42,0.12)]">
+                    <aside className="w-full lg:w-[220px] border-b lg:border-b-0 lg:border-r border-[#ead8c7] p-4 bg-[#fdf8f2]">
+                        <p className="text-xs uppercase tracking-widest text-[#927d6c] mb-3">Sections</p>
                         <div className="space-y-2">
                             {tabs.map((tab) => (
                                 <button
@@ -121,8 +121,8 @@ const InterviewPlanResult = () => {
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`w-full text-left px-3 py-2 rounded-lg text-sm transition ${
                                         activeTab === tab.id
-                                            ? "bg-[#3f1c2e] text-[#ff7dad] border border-[#6f284e]"
-                                            : "text-[#c3d0e5] hover:bg-[#1a2740]"
+                                            ? "bg-[#8B5C2A] text-white border border-[#704214]"
+                                            : "text-[#3f2a1b] hover:bg-[#f7eadb]"
                                     }`}
                                 >
                                     {tab.label}
@@ -131,11 +131,11 @@ const InterviewPlanResult = () => {
                         </div>
                     </aside>
 
-                    <main className="flex-1 p-4 md:p-6 border-b lg:border-b-0 lg:border-r border-[#23324a]">
+                    <main className="flex-1 p-4 md:p-6 border-b lg:border-b-0 lg:border-r border-[#ead8c7]">
                         <div className="flex items-center justify-between gap-3 mb-4">
                             <h2 className="text-2xl font-bold">{plan.title || "Interview Plan"}</h2>
                             {plan.generationMode === "fallback" && (
-                                <span className="text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full border border-[#7a6030] bg-[#453a23] text-[#ffcf75]">
+                                <span className="text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full border border-[#e4c9ad] bg-[#f7eadb] text-[#8B5C2A]">
                                     Generated in fallback mode
                                 </span>
                             )}
@@ -145,7 +145,7 @@ const InterviewPlanResult = () => {
                             <section>
                                 <div className="flex items-center gap-3 mb-5">
                                     <h3 className="text-xl font-bold">Technical Questions</h3>
-                                    <span className="text-xs text-[#8d9cb3] bg-[#1a2740] border border-[#2e4368] px-2 py-1 rounded-full">
+                                    <span className="text-xs text-[#927d6c] bg-[#f7eadb] border border-[#e4c9ad] px-2 py-1 rounded-full">
                                         {plan.technicalQuestions.length} questions
                                     </span>
                                 </div>
@@ -161,7 +161,7 @@ const InterviewPlanResult = () => {
                             <section>
                                 <div className="flex items-center gap-3 mb-5">
                                     <h3 className="text-xl font-bold">Behavioral Questions</h3>
-                                    <span className="text-xs text-[#8d9cb3] bg-[#1a2740] border border-[#2e4368] px-2 py-1 rounded-full">
+                                    <span className="text-xs text-[#927d6c] bg-[#f7eadb] border border-[#e4c9ad] px-2 py-1 rounded-full">
                                         {plan.behavioralQuestions.length} questions
                                     </span>
                                 </div>
@@ -177,7 +177,7 @@ const InterviewPlanResult = () => {
                             <section>
                                 <div className="flex items-center gap-3 mb-5">
                                     <h3 className="text-xl font-bold">Preparation Road Map</h3>
-                                    <span className="text-xs text-[#8d9cb3] bg-[#1a2740] border border-[#2e4368] px-2 py-1 rounded-full">
+                                    <span className="text-xs text-[#927d6c] bg-[#f7eadb] border border-[#e4c9ad] px-2 py-1 rounded-full">
                                         {plan.preparationPlan.length}-day plan
                                     </span>
                                 </div>
@@ -190,19 +190,19 @@ const InterviewPlanResult = () => {
                         )}
                     </main>
 
-                    <aside className="w-full lg:w-[250px] p-5 space-y-5">
+                    <aside className="w-full lg:w-[250px] p-5 space-y-5 bg-[#fdf8f2]">
                         <div>
-                            <p className="text-xs uppercase tracking-widest text-[#8d9cb3] mb-3">Match Score</p>
+                            <p className="text-xs uppercase tracking-widest text-[#927d6c] mb-3">Match Score</p>
                             <div className="flex items-center justify-center">
                                 <div
                                     className="w-24 h-24 rounded-full grid place-items-center"
                                     style={{
-                                        background: `conic-gradient(${scoreColor} ${plan.matchScore}%, #203250 ${plan.matchScore}% 100%)`,
+                                        background: `conic-gradient(${scoreColor} ${plan.matchScore}%, #ead8c7 ${plan.matchScore}% 100%)`,
                                     }}
                                 >
-                                    <div className="w-20 h-20 rounded-full bg-[#101b2d] grid place-items-center text-center">
+                                    <div className="w-20 h-20 rounded-full bg-white grid place-items-center text-center border border-[#ead8c7]">
                                         <p className="text-2xl font-bold">{plan.matchScore}</p>
-                                        <p className="text-xs text-[#8d9cb3]">%</p>
+                                        <p className="text-xs text-[#927d6c]">%</p>
                                     </div>
                                 </div>
                             </div>
@@ -211,18 +211,18 @@ const InterviewPlanResult = () => {
                             </p>
                         </div>
 
-                        <div className="h-px bg-[#22344f]" />
+                        <div className="h-px bg-[#ead8c7]" />
 
                         <div>
-                            <p className="text-xs uppercase tracking-widest text-[#8d9cb3] mb-3">Skill Gaps</p>
+                            <p className="text-xs uppercase tracking-widest text-[#927d6c] mb-3">Skill Gaps</p>
                             <div className="flex flex-wrap gap-2">
                                 {plan.skillGaps.map((gap, idx) => {
                                     const cls =
                                         gap.severity === "high"
-                                            ? "bg-[#40252a] text-[#ff9aa8] border-[#6d303b]"
+                                            ? "bg-[#fbe4e6] text-[#b04b5b] border-[#ebb6bf]"
                                             : gap.severity === "medium"
-                                                ? "bg-[#453a23] text-[#ffcf75] border-[#7a6030]"
-                                                : "bg-[#243b2e] text-[#8ee6b0] border-[#2f6a4a]";
+                                                ? "bg-[#f7eadb] text-[#8B5C2A] border-[#e4c9ad]"
+                                                : "bg-[#e7f1e8] text-[#4f7d57] border-[#b9d6be]";
                                     return (
                                         <span key={idx} className={`text-xs px-2.5 py-1 rounded border ${cls}`}>
                                             {gap.skill}

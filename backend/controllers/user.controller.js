@@ -4,6 +4,15 @@ import jwt from "jsonwebtoken";
 import getDataUri from "../utils/datauri.js";
 import cloudinary from "../utils/cloudinary.js";
 
+const jwtSecret = process.env.SECRET_KEY || process.env.JWT_SECRET;
+const isProduction = process.env.NODE_ENV === "production";
+const authCookieOptions = {
+    maxAge: 1 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
+};
+
 export const register = async (req, res) => {
     try {
         const { fullname, email, phoneNumber, password, role } = req.body;
@@ -16,7 +25,11 @@ export const register = async (req, res) => {
         };
 
         let profilePhotoUrl = undefined;
-        if (req.file && process.env.CLOUD_NAME && process.env.API_KEY && process.env.API_SECRET) {
+        const hasCloudinaryCredentials = (process.env.CLOUD_NAME || process.env.CLOUDINARY_CLOUD_NAME)
+            && (process.env.API_KEY || process.env.CLOUDINARY_API_KEY)
+            && (process.env.API_SECRET || process.env.CLOUDINARY_API_SECRET);
+
+        if (req.file && hasCloudinaryCredentials) {
             try {
                 const fileUri = getDataUri(req.file);
                 const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
@@ -101,7 +114,14 @@ export const login = async (req, res) => {
         const tokenData = {
             userId: user._id
         }
-        const token = await jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '1d' });
+        if (!jwtSecret) {
+            return res.status(500).json({
+                message: "JWT secret is not configured.",
+                success: false,
+            });
+        }
+
+        const token = await jwt.sign(tokenData, jwtSecret, { expiresIn: '1d' });
 
         user = {
             _id: user._id,
@@ -112,7 +132,7 @@ export const login = async (req, res) => {
             profile: user.profile
         }
 
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: 'strict' }).json({
+        return res.status(200).cookie("token", token, authCookieOptions).json({
             message: `Welcome back ${user.fullname}`,
             user,
             success: true
@@ -123,7 +143,10 @@ export const login = async (req, res) => {
 }
 export const logout = async (req, res) => {
     try {
-        return res.status(200).cookie("token", "", { maxAge: 0 }).json({
+        return res.status(200).cookie("token", "", {
+            ...authCookieOptions,
+            maxAge: 0,
+        }).json({
             message: "Logged out successfully.",
             success: true
         })

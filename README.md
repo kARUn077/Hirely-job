@@ -113,7 +113,7 @@ npm install
 
 3. Create `.env.local` file with:
 ```
-VITE_API_URL=http://localhost:8000
+VITE_API_URL=http://localhost:3000
 ```
 
 4. Start the development server:
@@ -167,13 +167,48 @@ JWT_SECRET=your_secret_key
 CLOUDINARY_NAME=your_name
 CLOUDINARY_API_KEY=your_key
 CLOUDINARY_API_SECRET=your_secret
-PORT=8000
+PORT=3000
 ```
 
 ### Frontend (.env.local)
 ```
-VITE_API_URL=http://localhost:8000
+VITE_API_URL=http://localhost:3000
 ```
+
+## Deployment
+
+### Render Backend
+
+1. Create a new Render Web Service from the `backend` folder.
+2. Set the start command to `npm start`.
+3. Add these environment variables on Render:
+```bash
+NODE_ENV=production
+PORT=10000
+MONGO_URI=your_mongodb_uri
+SECRET_KEY=your_jwt_secret
+CLIENT_URL=https://your-vercel-app.vercel.app
+CLOUD_NAME=your_cloudinary_cloud_name
+API_KEY=your_cloudinary_api_key
+API_SECRET=your_cloudinary_api_secret
+GOOGLE_GEN_API_KEY=your_gemini_api_key
+```
+
+### Vercel Frontend
+
+1. Create a new Vercel project from the `frontend` folder.
+2. Set the build command to `npm run build` and output directory to `dist`.
+3. Add this environment variable on Vercel:
+```bash
+VITE_API_URL=https://your-render-service.onrender.com
+```
+4. Redeploy after updating the environment variables.
+
+### Important
+
+- The frontend now reads the backend URL from `VITE_API_URL`, so local development and production use the same code path.
+- Authentication cookies are set for cross-site requests in production, which is required when Vercel and Render are on different domains.
+- If you use a custom Vercel domain, make sure `CLIENT_URL` on Render matches it exactly.
 
 ## Usage
 
