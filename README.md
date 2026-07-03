@@ -8,14 +8,17 @@ Hirely is a full-stack job portal for job seekers and recruiters. It includes jo
 
 ## Screenshots
 
-### Home Page
-![Hirely Home Page](https://image.thum.io/get/fullpage/https://hirely-job-iota.vercel.app/)
+The live app is available at [hirely-job-iota.vercel.app](https://hirely-job-iota.vercel.app/).
 
-### Login Page
-![Hirely Login Page](https://image.thum.io/get/fullpage/https://hirely-job-iota.vercel.app/login)
+If you want proper screenshots in GitHub, add image files to the repo and reference them here, for example:
 
-### Interview Plan
-![Hirely Interview Plan](https://image.thum.io/get/fullpage/https://hirely-job-iota.vercel.app/interview-plan)
+```md
+![Home Page](docs/screenshots/home.png)
+![Login Page](docs/screenshots/login.png)
+![Interview Plan](docs/screenshots/interview-plan.png)
+```
+
+For now, the live demo link above is the most reliable preview.
 
 ## Features
 
