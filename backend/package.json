@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google/genai": "^2.10.0",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.3.0",
     "cookie-parser": "^1.4.6",
@@ -29,8 +30,7 @@
     "@types/cookie-parser": "^1.4.7",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6"
-  }
-  ,
+  },
   "optionalDependencies": {
     "pdf-parse": "^1.1.1"
   }
