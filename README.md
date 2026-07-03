@@ -8,15 +8,13 @@ Hirely is a full-stack job portal for job seekers and recruiters. It includes jo
 
 ## Screenshots
 
-The live app is available at [hirely-job-iota.vercel.app](https://hirely-job-iota.vercel.app/).
+Screenshots below are rendered from images stored in the repository's `docs/` folder.
 
 ### Login Page
 ![Hirely Login Page](docs/login.png)
 
 ### Interview Plan
 ![Hirely Interview Plan](docs/interview-plan.png)
-
-If you add more screenshots later, place them in the `docs/` folder and reference them with relative paths like `docs/home.png`.
 
 ## Features
 
