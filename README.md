@@ -1,62 +1,73 @@
-# Hirely - Job Portal
+# Hirely
 
-A full-stack job portal application built with React, Node.js, and MongoDB. Hirely connects job seekers with employers, providing a seamless platform for job discovery, applications, and management.
+Hirely is a full-stack job portal for job seekers and recruiters. It includes job browsing, applications, profile management, company setup, admin tools, and an AI-powered interview plan feature.
+
+## Live Demo
+
+- Production App: https://hirely-job-iota.vercel.app/
+
+## Screenshots
+
+### Home Page
+![Hirely Home Page](https://image.thum.io/get/fullpage/https://hirely-job-iota.vercel.app/)
+
+### Login Page
+![Hirely Login Page](https://image.thum.io/get/fullpage/https://hirely-job-iota.vercel.app/login)
+
+### Interview Plan
+![Hirely Interview Plan](https://image.thum.io/get/fullpage/https://hirely-job-iota.vercel.app/interview-plan)
 
 ## Features
 
 ### For Job Seekers
-- 🔍 Browse and search for jobs
-- 📝 Apply for jobs with one click
-- 👤 Create and manage user profile
-- 📊 Track applied jobs
-- 📱 Responsive design for mobile and desktop
+- Browse and search jobs
+- Apply to jobs quickly
+- Manage profile and resume
+- Track applied jobs
+- Generate AI-based interview plans
 
-### For Employers
-- 🏢 Company setup and management
-- ➕ Post and manage job listings
-- 👥 View and manage job applications
-- 📈 Track applicants and hiring metrics
-- 🎯 Filter jobs by category
+### For Recruiters
+- Create and manage companies
+- Post and edit job listings
+- View applicants for each job
+- Manage hiring workflow
 
 ### Admin Features
-- 🛡️ Admin dashboard
-- 👨‍💼 Manage companies
-- 💼 Manage job posts
-- 👥 Monitor all applicants
-- 🎨 Complete application management
+- Admin dashboard support
+- Company management
+- Job management
+- Applicant overview
 
 ## Tech Stack
 
 ### Frontend
-- **React** - UI library
-- **Vite** - Fast build tool
-- **Tailwind CSS** - Styling
-- **Redux** - State management
-- **React Router** - Navigation
-- **Shadcn UI** - Component library
-- **Sonner** - Toast notifications
+- React
+- Vite
+- Tailwind CSS
+- Redux Toolkit
+- React Router
+- Shadcn UI
+- Sonner
 
 ### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM
-- **JWT** - Authentication
-- **Cloudinary** - Image hosting
-- **Multer** - File upload handling
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Cloudinary
+- Multer
+- Google Gemini API
 
 ## Project Structure
 
-```
+```bash
 Hirely/
-├── frontend/          # React application
+├── frontend/
 │   ├── src/
-│   │   ├── components/
-│   │   ├── hooks/
-│   │   ├── redux/
-│   │   └── utils/
+│   ├── public/
 │   └── package.json
-├── backend/          # Node.js API server
+├── backend/
 │   ├── controllers/
 │   ├── models/
 │   ├── routes/
@@ -65,114 +76,55 @@ Hirely/
 └── README.md
 ```
 
-## Installation
+## Local Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
+- Node.js
+- MongoDB Atlas or local MongoDB
+- npm
 
-### Backend Setup
+### Backend
 
-1. Navigate to backend directory:
 ```bash
 cd backend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create `.env` file with:
-```
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_NAME=your_cloudinary_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-PORT=8000
+Create a `.env` file inside `backend/`:
+
+```env
+PORT=3000
+MONGO_URI=your_mongodb_uri
+SECRET_KEY=your_jwt_secret
+CLOUD_NAME=your_cloudinary_cloud_name
+API_KEY=your_cloudinary_api_key
+API_SECRET=your_cloudinary_api_secret
+GOOGLE_GEN_API_KEY=your_google_gemini_api_key
 ```
 
-4. Start the server:
+Start backend:
+
 ```bash
 npm start
 ```
 
-### Frontend Setup
+### Frontend
 
-1. Navigate to frontend directory:
 ```bash
 cd frontend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create `.env.local` file with:
-```
+Create a `.env.local` file inside `frontend/`:
+
+```env
 VITE_API_URL=http://localhost:3000
 ```
 
-4. Start the development server:
+Start frontend:
+
 ```bash
 npm run dev
-```
-
-## Available Scripts
-
-### Backend
-- `npm start` - Start the server
-- `npm run dev` - Start with nodemon (development)
-
-### Frontend
-- `npm run dev` - Run development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-## API Endpoints
-
-### Authentication
-- `POST /api/user/register` - Register new user
-- `POST /api/user/login` - Login user
-- `GET /api/user/profile` - Get user profile
-- `PUT /api/user/profile` - Update user profile
-
-### Jobs
-- `GET /api/job` - Get all jobs
-- `GET /api/job/:id` - Get job details
-- `POST /api/job` - Create new job (Admin)
-- `PUT /api/job/:id` - Update job (Admin)
-- `DELETE /api/job/:id` - Delete job (Admin)
-
-### Applications
-- `POST /api/application/apply` - Apply for job
-- `GET /api/application` - Get applied jobs
-- `GET /api/application/:id/applicants` - Get job applicants (Admin)
-
-### Companies
-- `GET /api/company` - Get all companies
-- `GET /api/company/:id` - Get company details
-- `POST /api/company/register` - Register company (Admin)
-- `PUT /api/company/:id` - Update company (Admin)
-
-## Environment Variables
-
-### Backend (.env)
-```
-MONGODB_URI=mongodb://localhost:27017/hirely
-JWT_SECRET=your_secret_key
-CLOUDINARY_NAME=your_name
-CLOUDINARY_API_KEY=your_key
-CLOUDINARY_API_SECRET=your_secret
-PORT=3000
-```
-
-### Frontend (.env.local)
-```
-VITE_API_URL=http://localhost:3000
 ```
 
 ## Deployment
@@ -180,61 +132,75 @@ VITE_API_URL=http://localhost:3000
 ### Render Backend
 
 1. Create a new Render Web Service from the `backend` folder.
-2. Set the start command to `npm start`.
-3. Add these environment variables on Render:
-```bash
+2. Build Command: `npm install`
+3. Start Command: `npm start`
+4. Add environment variables:
+
+```env
 NODE_ENV=production
 PORT=10000
 MONGO_URI=your_mongodb_uri
 SECRET_KEY=your_jwt_secret
-CLIENT_URL=https://your-vercel-app.vercel.app
+CLIENT_URL=https://hirely-job-iota.vercel.app
 CLOUD_NAME=your_cloudinary_cloud_name
 API_KEY=your_cloudinary_api_key
 API_SECRET=your_cloudinary_api_secret
-GOOGLE_GEN_API_KEY=your_gemini_api_key
+GOOGLE_GEN_API_KEY=your_google_gemini_api_key
 ```
 
 ### Vercel Frontend
 
 1. Create a new Vercel project from the `frontend` folder.
-2. Set the build command to `npm run build` and output directory to `dist`.
-3. Add this environment variable on Vercel:
-```bash
-VITE_API_URL=https://your-render-service.onrender.com
+2. Framework preset: `Vite`
+3. Build Command: `npm run build`
+4. Output Directory: `dist`
+5. Add environment variable:
+
+```env
+VITE_API_URL=https://your-render-backend-url.onrender.com
 ```
-4. Redeploy after updating the environment variables.
 
-### Important
+## API Routes
 
-- The frontend now reads the backend URL from `VITE_API_URL`, so local development and production use the same code path.
-- Authentication cookies are set for cross-site requests in production, which is required when Vercel and Render are on different domains.
-- If you use a custom Vercel domain, make sure `CLIENT_URL` on Render matches it exactly.
+### Authentication
+- `POST /api/v1/user/register`
+- `POST /api/v1/user/login`
+- `GET /api/v1/user/profile`
+- `PUT /api/v1/user/profile`
 
-## Usage
+### Jobs
+- `GET /api/v1/job`
+- `GET /api/v1/job/:id`
+- `POST /api/v1/job`
+- `PUT /api/v1/job/:id`
+- `DELETE /api/v1/job/:id`
 
-1. **Register/Login**: Create an account as a job seeker or employer
-2. **Browse Jobs**: Search and filter jobs by category
-3. **Apply for Jobs**: Click on a job and apply directly
-4. **Post Jobs**: Employers can post new job listings
-5. **Track Applications**: Monitor your applications and applicants
-6. **Admin Panel**: Manage users, jobs, and companies
+### Applications
+- `POST /api/v1/application/apply`
+- `GET /api/v1/application`
+- `GET /api/v1/application/:id/applicants`
 
-## Authentication
+### Companies
+- `GET /api/v1/company`
+- `GET /api/v1/company/:id`
+- `POST /api/v1/company/register`
+- `PUT /api/v1/company/:id`
 
-The application uses JWT (JSON Web Tokens) for authentication. Tokens are stored in HTTP-only cookies for security.
+### Interview Plans
+- `GET /api/v1/interview/plans`
+- `POST /api/v1/interview/plan`
+- `GET /api/v1/interview/plan/:id`
 
-## Contributing
+## Notes
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- Authentication uses HTTP-only cookies.
+- Production frontend and backend are hosted separately on Vercel and Render.
+- Make sure `CLIENT_URL` and `VITE_API_URL` point to the exact deployed domains.
 
 ## License
 
 This project is open source and available under the MIT License.
 
-## Support
+## Author
 
-For support, email support@hirely.com or open an issue in the repository.
-
----
-
-**Made with ❤️ by Karun**
+Made with ❤️ by Karun
