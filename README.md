@@ -8,8 +8,6 @@ Hirely is a full-stack job portal for job seekers and recruiters. It includes jo
 
 ## Screenshots
 
-Screenshots below are rendered from images stored in the repository's `docs/` folder.
-
 ### Login Page
 ![Hirely Login Page](docs/login.png)
 
